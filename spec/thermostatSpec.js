@@ -25,7 +25,13 @@ describe('Thermostat', function() {
 			};
 			expect(function() {thermostat.up();}).toThrow('In power saving mode. Max temperature reached');
 		});
-
+		it('prevents you increasing the temp past 32 degrees if powerSaving is false', function() {
+			thermostat.powerSavingModeOff();
+			for (var i = 0; i < 12; i++) {
+				thermostat.up();
+			};
+			expect(function() {thermostat.up();}).toThrow('Maximum temperature reached');
+		});
 	});
 	describe("#down", function() {
 		it('allow you to decrease the temperature', function () {
@@ -43,6 +49,12 @@ describe('Thermostat', function() {
 	describe("#powerSavingModeOn", function() {
 		it('turning on', function() {
 			expect(thermostat.powerSavingModeOn()).toBe(true);
+		});
+	});
+
+	describe('#powerSavingModeOff', function() {
+		it('turning off', function() {
+			expect(thermostat.powerSavingModeOff()).toBe(false);
 		});
 	});
 });
