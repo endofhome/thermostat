@@ -57,4 +57,11 @@ describe('Thermostat', function() {
 			expect(thermostat.powerSavingModeOff()).toBe(false);
 		});
 	});
+
+	describe('#resetButton', function() {
+		it('resets the temperature to 20', function() {
+			thermostat.resetButton();
+			expect(thermostat.temperature()).toBe(temp);
+		});
+	});
 });
