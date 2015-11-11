@@ -24,5 +24,11 @@ describe('Thermostat', function() {
 			thermostat.down();
 			expect(thermostat.temperature()).toBe(temp - 1);
 		});
+		it('prevents you reducing the temperature below ten degrees', function() {
+			for (var i = 0; i < 10; i++) {
+				thermostat.down();
+			};
+			expect(function() {thermostat.down();}).toThrow('Min temperature reached');
+		});
 	});
 });

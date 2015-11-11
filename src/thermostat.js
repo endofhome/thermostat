@@ -1,5 +1,6 @@
 function Thermostat() {
-	this.temp = 20; 
+	this.temp = 20;
+	this.minTemp = 10; 
 }
 
 Thermostat.prototype.temperature = function() {
@@ -11,5 +12,6 @@ Thermostat.prototype.up = function() {
 };
 
 Thermostat.prototype.down = function() {
+	if (this.temp <= this.minTemp) { throw 'Min temperature reached'};
 	this.temp -= 1;
 };
