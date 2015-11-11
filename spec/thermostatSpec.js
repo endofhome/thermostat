@@ -64,4 +64,26 @@ describe('Thermostat', function() {
 			expect(thermostat.temperature()).toBe(temp);
 		});
 	});
+
+	describe('#energyConsumption', function() {
+		it('changes to low energy consumption if less than 18 degrees', function() {
+			thermostat.down;
+			thermostat.down;
+			expect(thermostat.energyConsumption()).toEqual("Low energy consumption");
+		});
+		it('changes to medium energy consumption if between than 18 & 25 degrees', function() {
+			expect(thermostat.energyConsumption()).toEqual("Medium energy consumption");
+		});
+		it('changes to high energy consumption if more than 25 degrees', function() {
+			for (var i = 0; i < 6; i++) {
+				thermostat.up;
+			};
+			expect(thermostat.energyConsumption()).toEqual("High energy consumption");
+		});
+	});
 });
+
+
+
+
+
