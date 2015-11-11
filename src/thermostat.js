@@ -5,3 +5,7 @@ function Thermostat() {
 Thermostat.prototype.temperature = function() {
 	return this.temp;
 }; 
+
+Thermostat.prototype.up = function() {
+	this.temp += 1;
+};
