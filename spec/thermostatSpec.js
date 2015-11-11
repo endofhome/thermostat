@@ -16,7 +16,13 @@ describe('Thermostat', function() {
 	describe("#up", function() {
 		it('allows you to increase the temperature', function() {
 			thermostat.up();
-			expect(thermostat.temperature()).toBe(temp + 1)
+			expect(thermostat.temperature()).toBe(temp + 1);
+		});
+	});
+	describe("#down", function() {
+		it('allow you to decrease the temperature', function () {
+			thermostat.down();
+			expect(thermostat.temperature()).toBe(temp - 1);
 		});
 	});
 });
