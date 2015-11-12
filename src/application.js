@@ -1,18 +1,9 @@
-	window.onload = function() {
-	 
-	    alert( "welcome" );
-	 
-	};
+window.onload = function() {
+    alert( "welcome" );
+};
 
-	 $( "#temperature-up" ).button().click( function() {
-
+$( document ).ready(function() {
+	 $( "#temperature-up" ).click( function() {
       alert( "Thanks for visiting!" );
-
   });
- 
-
-// $( document ).ready(function() {
- 
- 
-// });
-
+});
