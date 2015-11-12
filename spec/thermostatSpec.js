@@ -9,14 +9,14 @@ describe('Thermostat', function() {
 
 	describe('#temperature', function () {
 		it('has a default temprature on initialization', function () {
-			expect(thermostat.temperature()).toBe(temp);
+			expect(thermostat.temp).toBe(temp);
 		});
 	});
 
 	describe("#up", function() {
 		it('allows you to increase the temperature', function() {
 			thermostat.up();
-			expect(thermostat.temperature()).toBe(temp + 1);
+			expect(thermostat.temp).toBe(temp + 1);
 		});
 
 		it('prevents you increasing the temp if powerSaving is true', function() {
@@ -34,9 +34,9 @@ describe('Thermostat', function() {
 		});
 	});
 	describe("#down", function() {
-		it('allow you to decrease the temperature', function () {
+		it('allows you to decrease the temperature', function() {
 			thermostat.down();
-			expect(thermostat.temperature()).toBe(temp - 1);
+			expect(thermostat.temp).toBe(temp - 1);
 		});
 		it('prevents you reducing the temperature below ten degrees', function() {
 			for (var i = 0; i < 10; i++) {
@@ -48,20 +48,21 @@ describe('Thermostat', function() {
 
 	describe("#powerSavingModeOn", function() {
 		it('turning on', function() {
-			expect(thermostat.powerSavingModeOn()).toBe(true);
+			expect(thermostat.powerSaving).toBe(true);
 		});
 	});
 
 	describe('#powerSavingModeOff', function() {
 		it('turning off', function() {
-			expect(thermostat.powerSavingModeOff()).toBe(false);
+      thermostat.powerSavingModeOff();
+			expect(thermostat.powerSaving).toBe(false);
 		});
 	});
 
 	describe('#resetButton', function() {
 		it('resets the temperature to 20', function() {
 			thermostat.resetButton();
-			expect(thermostat.temperature()).toBe(temp);
+			expect(thermostat.temp).toBe(temp);
 		});
 	});
 
@@ -83,8 +84,3 @@ describe('Thermostat', function() {
 		});
 	});
 });
-
-
-
-
-
