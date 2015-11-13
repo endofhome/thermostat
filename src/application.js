@@ -17,9 +17,13 @@ $( document ).ready(function() {
   $( "#powersaving-on" ).click( function() {
     thermostat.powerSavingModeOn();
     $('#temperature').text(thermostat.temp);
+    $(this).css('background-color', 'green')
+    $('#powersaving-off').css('background-color', 'white')
   });
   $( "#powersaving-off" ).click( function() {
     thermostat.powerSavingModeOff();
     $('#temperature').text(thermostat.temp);
+    $(this).css('background-color', 'red')
+    $('#powersaving-on').css('background-color', 'white')
   });
 });
